@@ -91,7 +91,7 @@ main {
   position: relative;
 }
 
-.combo-option img {
+.combo-option > img {
   width: 144px;
   height: 87px;
 
@@ -122,7 +122,7 @@ main {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 400;
-  line-height: normal;
+  word-spacing: -2px;
 }
 
 .combo-option-footer{
@@ -136,14 +136,14 @@ main {
   bottom: 6px;
 }
 
-.combo-option-footer img {
+.checkmark {
   width: 19px;
   height: 19px;
 
   opacity: 0;
 }
 
-.active-image {
+.combo-option.combo-option-selected .checkmark {
   opacity: 1;
 }
 
@@ -176,9 +176,7 @@ footer button {
   background: #CBCBCB;
 
   border: none;
-}
 
-footer button p {
   color: #FFF;
   text-align: center;
   font-family: Roboto;
