@@ -93,8 +93,8 @@ function sendOrder () {
   - Dessert: ${dessert.name}\n
   Total: R$ ${totalPrice.toFixed(2)}
 
-  Nome: ${clientName}
-  Endereço: ${adress}
+  Name: ${clientName}
+  Adress: ${adress}
   `;
   const urlWhatsapp = `https://wa.me/${phoneNumber}?text=${encodedText}`;
   window.open(urlWhatsapp);
