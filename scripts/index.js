@@ -7,7 +7,6 @@ let dessert;
 function selectOrderOption (orderOption,element,name,price) {
   const orderOptionSelected = document.querySelector(`.${orderOption} .combo-option-selected`);
 
-  //This conditional is used to deselect an option from the combo that was already selected.
   if(element.classList.contains('combo-option-selected')){
     element.classList.remove("combo-option-selected");
     counter--;
@@ -20,25 +19,6 @@ function selectOrderOption (orderOption,element,name,price) {
     counter--;
     checkOrder();
   }
-
-  // if(orderOption === 'dish') {
-  //   dish = {
-  //     name,
-  //     price: price.toFixed(2)
-  //   };
-  // }
-  // if(orderOption === 'drink') {
-  //   drink = {
-  //     name,
-  //     price: price.toFixed(2)
-  //   };
-  // }
-  // if(orderOption === 'dessert') {
-  //   dessert = {
-  //     name,
-  //     price: price.toFixed(2)
-  //   };
-  // }
 
   if (['dish', 'drink', 'dessert'].includes(orderOption)) {
     const item = {
