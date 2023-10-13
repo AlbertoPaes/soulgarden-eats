@@ -21,23 +21,42 @@ function selectOrderOption (orderOption,element,name,price) {
     checkOrder();
   }
 
-  if(orderOption === 'dish') {
-    dish = {
+  // if(orderOption === 'dish') {
+  //   dish = {
+  //     name,
+  //     price: price.toFixed(2)
+  //   };
+  // }
+  // if(orderOption === 'drink') {
+  //   drink = {
+  //     name,
+  //     price: price.toFixed(2)
+  //   };
+  // }
+  // if(orderOption === 'dessert') {
+  //   dessert = {
+  //     name,
+  //     price: price.toFixed(2)
+  //   };
+  // }
+
+  if (['dish', 'drink', 'dessert'].includes(orderOption)) {
+    const item = {
       name,
       price: price.toFixed(2)
     };
-  }
-  if(orderOption === 'drink') {
-    drink = {
-      name,
-      price: price.toFixed(2)
-    };
-  }
-  if(orderOption === 'dessert') {
-    dessert = {
-      name,
-      price: price.toFixed(2)
-    };
+  
+    switch (orderOption) {
+      case 'dish': 
+        dish = item;
+        break;
+      case 'drink':
+        drink = item;
+        break;
+      case 'dessert':
+        dessert = item;
+        break;
+    }
   }
 
   element.classList.add("combo-option-selected"); 
