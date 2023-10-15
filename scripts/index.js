@@ -58,19 +58,25 @@ function checkOrder () {
   }
 }
 
-function openModal () {
+function openModal() {
   const overlay = document.querySelector(".overlay");
   overlay.classList.remove("hidden");
 
-  const totalOrder = Number(dish.price) + Number(drink.price) + Number(dessert.price);
+  const items = {
+    dish: { name: ".order-dish-name", price: ".order-dish-price" },
+    drink: { name: ".order-drink-name", price: ".order-drink-price" },
+    dessert: { name: ".order-dessert-name", price: ".order-dessert-price" }
+  };
 
-  document.querySelector(".order-dish-name").textContent = dish.name;
-  document.querySelector(".order-drink-name").textContent = drink.name;
-  document.querySelector(".order-dessert-name").textContent = dessert.name;
+  for (const key in items) {
+    const item = items[key];
+    document.querySelector(item.name).textContent = eval(key).name;
+    document.querySelector(item.price).textContent = eval(key).price;
+  }
 
-  document.querySelector(".order-dish-price").textContent = dish.price;
-  document.querySelector(".order-drink-price").textContent = drink.price;
-  document.querySelector(".order-dessert-price").textContent = dessert.price;
+  const totalOrder = Object.values(items).reduce((total, item) => {
+    return total + Number(document.querySelector(item.price).textContent);
+  }, 0);
 
   document.querySelector(".order-price-total").textContent = `$ ${totalOrder.toFixed(2)}`;
 }
