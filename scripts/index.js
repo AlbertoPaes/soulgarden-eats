@@ -50,11 +50,11 @@ function checkOrder () {
   if(counter === 3){
     buttonOrder.disabled = false;
     buttonOrder.style.cssText = "background-color: #32B72F; font-weight: 700; cursor: pointer";
-    buttonOrder.innerHTML = "Submit Order";
+    buttonOrder.textContent = "Submit Order";
   } else {
     buttonOrder.disabled = true;
     buttonOrder.style.cssText = "background-color: #CBCBCB;; font-weight: 400; cursor: not-allowed";
-    buttonOrder.innerHTML = "Choose the 3 items<br>to finalize the order";
+    buttonOrder.textContent = "Choose the 3 items\n to finalize the order";
   }
 }
 
@@ -64,15 +64,15 @@ function openModal () {
 
   const totalOrder = Number(dish.price) + Number(drink.price) + Number(dessert.price);
 
-  document.querySelector(".order-dish-name").innerHTML = dish.name;
-  document.querySelector(".order-drink-name").innerHTML = drink.name;
-  document.querySelector(".order-dessert-name").innerHTML = dessert.name;
+  document.querySelector(".order-dish-name").textContent = dish.name;
+  document.querySelector(".order-drink-name").textContent = drink.name;
+  document.querySelector(".order-dessert-name").textContent = dessert.name;
 
-  document.querySelector(".order-dish-price").innerHTML = dish.price;
-  document.querySelector(".order-drink-price").innerHTML = drink.price;
-  document.querySelector(".order-dessert-price").innerHTML = dessert.price;
+  document.querySelector(".order-dish-price").textContent = dish.price;
+  document.querySelector(".order-drink-price").textContent = drink.price;
+  document.querySelector(".order-dessert-price").textContent = dessert.price;
 
-  document.querySelector(".order-price-total").innerHTML = `$ ${totalOrder.toFixed(2)}`;
+  document.querySelector(".order-price-total").textContent = `$ ${totalOrder.toFixed(2)}`;
 }
 
 function closeModal() {
