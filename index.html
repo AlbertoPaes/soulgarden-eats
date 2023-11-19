@@ -34,8 +34,8 @@
           <span class="order-price-total"></span>
         </div>
       </div>
-      <button onclick="sendOrder()">All set, you can order!</button>
-      <span onclick="closeModal()">Cancel</span>
+      <button id="orderButton">All set, you can order!</button>
+      <span id="cancelButton">Cancel</span>
     </div>
   </div>
   <header>
@@ -49,7 +49,7 @@
     <div class="combo-option-container">
       <h1>First, your plate</h1>
       <div class="combo-option-wrapper dish">
-        <div class="combo-option" onclick="selectOrderOption('dish',this,'BUFFALO MINI WRAPS',11.50)">
+        <div class="combo-option" data-option-type="dish">
           <img src="assets/img/food/buffalo-mini-wraps-veggie-grill.jpg" alt="buffalo-mini-wraps-veggie-grill" />
           <h2>BUFFALO MINI WRAPS</h2>
           <h3>Buffalo chicken wrap with ranch sauce. Delicious and the portion is the perfect size</h3>
@@ -58,7 +58,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('dish',this,'CRISPY CAULIFLOWER',10.50)">
+        <div class="combo-option" data-option-type="dish">
           <img src="assets/img/food/Crispy-Cauliflower-veggie-grill.jpg" alt="Crispy-Cauliflower-veggie-grill" />
           <h2>CRISPY CAULIFLOWER</h2>
           <h3>Crispy tempura cauliflower garnished with green onions with your choice of Buffalo or orange glaze</h3>
@@ -67,7 +67,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('dish',this,'KATSU SLIDERS',11.95)">
+        <div class="combo-option" data-option-type="dish">
           <img src="assets/img/food/katsu-sliders-veggie-grill.jpg" alt="katsu-sliders-veggie-grill" />
           <h2>KATSU SLIDERS</h2>
           <h3>Sliders with pickled vegetables, fresh herbs, and sesame aioli on a steamed bao bun</h3>
@@ -81,7 +81,7 @@
     <div class="combo-option-container">
       <h1>Now your drink</h1>
       <div class="combo-option-wrapper drink">
-        <div class="combo-option" onclick="selectOrderOption('drink',this,'SUGARCANE JUICE',4.99)">
+        <div class="combo-option" data-option-type="drink">
           <img src="assets/img/drink/sugarcanejuice.jpeg" alt="sugarcane-juice" />
           <h2>SUGARCANE JUICE</h2>
           <h3>Delicious juice that helps cool the body and stimulate the immune system</h3>
@@ -90,7 +90,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('drink',this,'PINEAPPLE JUICE',3.99)">
+        <div class="combo-option" data-option-type="drink">
           <img src="assets/img/drink/pineapplejuice.jpg" alt="pineapple-juice" />
           <h2>PINEAPPLE JUICE</h2>
           <h3>The most refreshing & delicious pineapple juice </h3>
@@ -99,7 +99,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('drink',this,'GUAVA JUICE',4.95)">
+        <div class="combo-option" data-option-type="drink">
           <img src="assets/img/drink/guavasjuice.jpg" alt="guava-juice" />
           <h2>GUAVA JUICE</h2>
           <h3>A divine flavor that also helps your heart and makes you have good digestion.</h3>
@@ -113,7 +113,7 @@
     <div class="combo-option-container">
       <h1>Finally, your dessert</h1>
       <div class="combo-option-wrapper dessert">
-        <div class="combo-option" onclick="selectOrderOption('dessert',this,'CHIA PUDDING',6.99)">
+        <div class="combo-option" data-option-type="dessert">
           <img src="assets/img/dessert/chiapudding.jpg" alt="chia-pudding" />
           <h2>CHIA PUDDING</h2>
           <h3>Indulge in creamy chia pudding perfection, a guilt-free delight for your taste buds and your well-being.</h3>
@@ -122,7 +122,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('dessert',this,'FRUIT TARTE',7.99)">
+        <div class="combo-option" data-option-type="dessert">
           <img src="assets/img/dessert/fruittarte.jpg" alt="fruit-tarte" />
           <h2>FRUIT TARTE</h2>
           <h3>Indulge in the vibrant and sweet symphony of our fruit tart, where each bite is a burst of fruity perfection</h3>
@@ -131,7 +131,7 @@
             <img class="checkmark" src="assets/img/checkmark-circle.svg" alt="checkmark-circle" />
           </div>
         </div>
-        <div class="combo-option" onclick="selectOrderOption('dessert',this,'VEGAN STRAWBERRY ICECREAM',3.99)">
+        <div class="combo-option" data-option-type="dessert">
           <img src="assets/img/dessert/veganstrawberryicecream.jpg" alt="vegan-strawberry-icecream" />
           <h2>VEGAN STRAWBERRY ICECREAM</h2>
           <h3>Ripe strawberries and plant-based perfection unite for a delightful frozen treat</h3>
@@ -144,7 +144,7 @@
     </div>
   </main>
   <footer>
-    <button disabled" onclick="openModal()">Choose the 3 items
+    <button disabled" id="openModalButton">Choose the 3 items
     to finalize the order
     </button>
   </footer>
