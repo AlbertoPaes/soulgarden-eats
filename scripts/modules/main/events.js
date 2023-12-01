@@ -1,75 +1,12 @@
-let counter = 0;
-let dish;
-let drink;
-let dessert;
+import { dish, drink, dessert, selectOrderOption } from "../../main.js";
 
-const selectOrderOption = (event) => {
-  const element = event.currentTarget;
-  const orderOption = element.dataset.optionType;
-
-  const orderOptionSelected = document.querySelector(`.${orderOption} .combo-option-selected`);
-
-  if (element.classList.contains('combo-option-selected')) {
-    element.classList.remove("combo-option-selected");
-    counter--;
-    checkOrder();
-    return;
-  }
-
-  if (orderOptionSelected !== null) {
-    orderOptionSelected.classList.remove("combo-option-selected");
-    counter--;
-    checkOrder();
-  }
-
-  const name = element.querySelector('h2').textContent;
-  const price = parseFloat(element.querySelector('.combo-option-footer span').textContent.slice(2));
-
-  if (['dish', 'drink', 'dessert'].includes(orderOption)) {
-    const item = {
-      name,
-      price: price.toFixed(2)
-    };
-
-    switch (orderOption) {
-      case 'dish':
-        dish = item;
-        break;
-      case 'drink':
-        drink = item;
-        break;
-      case 'dessert':
-        dessert = item;
-        break;
-    }
-  }
-
-  element.classList.add("combo-option-selected");
-  counter++;
-  checkOrder();
-}
-
-const orderOption = (() => {
+export const orderOption = (() => {
   document.querySelectorAll('.combo-option').forEach(element => {
     element.addEventListener('click', selectOrderOption);
   });
-})();
+});
 
-const checkOrder = () => {
-  const buttonOrder = document.querySelector("footer button");
-
-  if(counter === 3){
-    buttonOrder.disabled = false;
-    buttonOrder.style.cssText = "background-color: #32B72F; font-weight: 700; cursor: pointer";
-    buttonOrder.textContent = "Submit Order";
-  } else {
-    buttonOrder.disabled = true;
-    buttonOrder.style.cssText = "background-color: #CBCBCB;; font-weight: 400; cursor: not-allowed";
-    buttonOrder.textContent = "Choose the 3 items\n to finalize the order";
-  }
-}
-
-const openModal = (() => {
+export const openModal = (() => {
   const overlay = document.querySelector(".overlay");
   const modal = document.querySelector("#openModalButton"); 
   
@@ -94,18 +31,18 @@ const openModal = (() => {
   
     document.querySelector(".order-price-total").textContent = `$ ${totalOrder.toFixed(2)}`;
   });    
-})();
+});
 
-const closeModal = (() => {
+export const closeModal = (() => {
   const overlay = document.querySelector(".overlay");
   const cancel = document.querySelector("#cancelButton");
 
   cancel.addEventListener("click", () => {
     overlay.classList.add("hidden");
   });
-})();
+});
 
-const sendOrder = (() => {
+export const sendOrder = (() => {
   const orderButton = document.querySelector("#orderButton");
 
   orderButton.addEventListener("click", () => {
@@ -126,4 +63,5 @@ const sendOrder = (() => {
     const urlWhatsapp = `https://wa.me/${phoneNumber}?text=${encodedText}`;
     window.open(urlWhatsapp);
   });
-})();
+});
+
